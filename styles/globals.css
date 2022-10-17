@@ -1,3 +1,19 @@
+:root {
+  --white: #ffffff;
+  --grey-base: #242528;
+  --grey-secondary: #55585d;
+  --grey-tertiary: #bcbec2;
+  --eezee-yellow: #ffc822;
+  --eezee-yellow-light: #ffe69c;
+  --eezee-yellow-dark: #6a5001;
+  --eezee-blue: #2a64db;
+  --eezee-blue-light: #1e4daf;
+  --background: #dbe5fa;
+  --foreground: #efeff0;
+  --border: #d7d8db;
+  --divider: #e4e5e7;
+}
+
 *,
 *::before,
 *::after {
@@ -6,7 +22,7 @@
 
 html,
 body {
-  background: var(--grey-light-background);
+  min-width: 1230px;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -16,4 +32,21 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.max-width-default {
+  width: 1230px;
+  height: 100%;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.body-foreground {
+  min-height: 100vh;
+  background: var(--foreground);
 }

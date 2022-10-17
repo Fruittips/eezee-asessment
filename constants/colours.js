@@ -14,7 +14,7 @@ export const EEZEE_YELLOW_LIGHT = "#FFE69C";
 
 export const EEZEE_YELLOW_DARK = "#6A5001";
 
-export const EEZZEE_BLUE = "#2A64DB";
+export const EEZEE_BLUE = "#2A64DB";
 
 export const EEZEE_BLUE_DARK = "#1E4DAF";
 

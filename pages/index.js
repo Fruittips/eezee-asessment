@@ -1,39 +1,29 @@
-import Image from "next/image";
 import Head from "../components/Head";
-import NavBar from "../components/NavBar";
-import Carousel from "../components/carousel/Carousel";
+import AppBar from "../components/appbar/AppBar";
+import Carousel from "../components/carousels/Carousels";
 import {
-  CategoryProductGrid,
   BrandsContainer,
-  RegularProductHomeGrid,
+  ProductsContainer,
 } from "../components/containers/Containers";
+import { SectionHeader } from "../components/headers/Headers";
+import { SpacerRow } from "../components/spacers/Spacers";
 
 export default function Home() {
   return (
     <div>
-      <Head />
+      <Head title={"Home-Eezee Internship Assessment"} />
       <main>
-        <NavBar />
-        <div className="spacing" />
-        <div className="max-width">
+        <AppBar />
+        <div className="max-width-default body-foreground">
+          <SpacerRow height={16} />
           <Carousel />
-          <div className="spacing" />
-          <div className="container-categories">
-            <CategoryProductGrid />
-            categories block
-          </div>
-          <div className="spacing" />
-          <div className="container-brands">
-            <BrandsContainer />
-            featured brands
-          </div>
-          <div className="spacing" />
-          <div className="container-popular">
-            <RegularProductHomeGrid />
-            popular brands
-          </div>
-          <div className="spacing" />
-          <div className="spacing" />
+          <SpacerRow height={32} />
+          <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
+          <BrandsContainer />
+          <SpacerRow height={32} />
+          <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
+          <ProductsContainer />
+          <SpacerRow height={16} />
         </div>
       </main>
     </div>

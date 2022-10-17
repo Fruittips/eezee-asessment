@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["storage.googleapis.com", "api.eezee.sg"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-export default function Meta() {
+export default function Meta({ title }) {
   return (
     <Head>
-      <title>Eezee Internship Assessment</title>
+      <title>{title}</title>
       <meta name="Mah Yi Da" content="Internship Assessment for Eezee" />
-      <link rel="icon" href="/favicon-on-blue.svg" />
+      <link rel="icon" href="/favicon-eezee.svg" />
     </Head>
   );
 }

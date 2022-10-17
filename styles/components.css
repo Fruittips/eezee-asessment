@@ -1,0 +1,17 @@
+.card-border-background {
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.brand-header-background {
+  background: var(--divider);
+}
+
+.navbar-background {
+  background: var(--background);
+}
+
+.toolbar-border-background {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
