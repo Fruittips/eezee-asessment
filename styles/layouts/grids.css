@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.grid-categories {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-brands {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-popular {
+  grid-template-columns: repeat(6, 1fr);
+}
