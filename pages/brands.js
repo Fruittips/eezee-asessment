@@ -1,3 +1,4 @@
+import { useState, useEffect, useContext } from "react";
 import { SpacerRow } from "../components/spacers/Spacers";
 import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
@@ -11,15 +12,17 @@ export default function Brands() {
     <div>
       <Head title={"All Brands - Eezee Internship Assessment"} />
       <AppBar />
-      <div className="max-width-default body-foreground">
-        <SpacerRow height={32} />
-        <div>
-          <BrandHeader />
-          <BrandsContainer />
-          <SpacerRow height={64} />
-          <BrandHeader />
-          <BrandsContainer />
-          <SpacerRow height={64} />
+      <div className="body-foreground">
+        <div className="max-width-default">
+          <SpacerRow height={32} />
+          <div>
+            <BrandHeader />
+            <BrandsContainer />
+            <SpacerRow height={64} />
+            <BrandHeader />
+            <BrandsContainer />
+            <SpacerRow height={64} />
+          </div>
         </div>
       </div>
     </div>

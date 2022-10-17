@@ -12,32 +12,17 @@ export function SpacerRow({ height }) {
   );
 }
 
-export function SpacerMedium() {
+export function SpacerColumn({ width }) {
   return (
-    <>
-      <SpacerRow />
-      <SpacerRow />
-    </>
-  );
-}
-
-export function SpacerLarge() {
-  return (
-    <>
-      <SpacerRow />
-      <SpacerRow />
-      <SpacerRow />
-    </>
-  );
-}
-
-export function SpacerExtraLarge() {
-  return (
-    <>
-      <SpacerRow />
-      <SpacerRow />
-      <SpacerRow />
-      <SpacerRow />
-    </>
+    <div className="spacer">
+      <style jsx>
+        {`
+          .spacer {
+            width: ${width}px;
+            border: 1px solid red;
+          }
+        `}
+      </style>
+    </div>
   );
 }

@@ -15,3 +15,21 @@
   border-bottom: 1px solid var(--border);
   background: var(--white);
 }
+
+.selector-background {
+  background: var(--white);
+}
+
+.selector-button {
+  height: 32px;
+  padding: 6px 16px;
+  color: var(--gray-primary);
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.selector-button.active {
+  color: var(--eezee-blue);
+  background: var(--eezee-blue-light);
+  border: 1px solid var(--eezee-blue);
+}

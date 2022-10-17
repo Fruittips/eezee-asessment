@@ -4,9 +4,9 @@ import { CartIconButton } from "../buttons/Buttons";
 
 export default function ToolBar() {
   return (
-    <div className="container-main">
+    <div className="container-main toolbar-border-background">
       <div className="max-width-default">
-        <div className="container-nav-top flex-row row-space-between row-center full-height">
+        <div className="container-tool-top flex-row row-space-between row-center full-height">
           <Image
             src={EEZEE_LOGO_URL}
             alt="Eezee Logo"
@@ -15,7 +15,7 @@ export default function ToolBar() {
           />
           <CartIconButton />
         </div>
-        <div className="container-nav-bottom flex-row row-center full-height">
+        <div className="container-tool-bottom flex-row row-center full-height">
           <a href="/brands">
             <span>View All Brands</span>
           </a>
@@ -26,11 +26,11 @@ export default function ToolBar() {
           height: 119px;
         }
 
-        .container-nav-top {
+        .container-tool-top {
           height: 80px;
         }
 
-        .container-nav-bottom {
+        .container-tool-bottom {
           height: 38px;
         }
       `}</style>
