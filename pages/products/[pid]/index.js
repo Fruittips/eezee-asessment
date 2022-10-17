@@ -3,7 +3,7 @@ import Head from "../../../components/Head";
 import { SpacerRow, SpacerColumn } from "../../../components/spacers/Spacers";
 import AppBar from "../../../components/appbar/AppBar";
 import { CategorySortingSelector } from "../../../components/selectors/Selectors";
-import { ProductsContainer } from "../../../components/containers/Containers";
+import { ProductsCardLayout } from "../../../components/layouts/CardLayouts";
 import { PageLabel } from "../../../components/labels/Labels";
 
 export default function ProductsById() {

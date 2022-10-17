@@ -1,7 +1,7 @@
 //TODO: come up with better name for this file
 import { BrandCard, ProductCardVertical } from "../cards/Cards";
 
-export function BrandsContainer({ brands }) {
+export function BrandsCardLayout({ brands }) {
   return (
     <div className="flex-row flex-gap flex-wrap">
       <BrandCard />
@@ -17,7 +17,7 @@ export function BrandsContainer({ brands }) {
   );
 }
 
-export function ProductsContainer({ products }) {
+export function ProductsCardLayout({ products }) {
   return (
     <div className="flex-row flex-gap flex-wrap">
       <ProductCardVertical />

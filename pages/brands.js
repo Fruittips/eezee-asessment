@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { SpacerRow } from "../components/spacers/Spacers";
 import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
-import { BrandsContainer } from "../components/containers/Containers";
+import { BrandsCardLayout } from "../components/containers/Containers";
 import Head from "../components/Head";
 
 export default function Brands() {
@@ -17,10 +17,10 @@ export default function Brands() {
           <SpacerRow height={32} />
           <div>
             <BrandHeader />
-            <BrandsContainer />
+            <BrandsCardLayout />
             <SpacerRow height={64} />
             <BrandHeader />
-            <BrandsContainer />
+            <BrandsCardLayout />
             <SpacerRow height={64} />
           </div>
         </div>

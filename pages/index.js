@@ -3,8 +3,8 @@ import Head from "../components/Head";
 import AppBar from "../components/appbar/AppBar";
 import Carousel from "../components/carousels/Carousels";
 import {
-  BrandsContainer,
-  ProductsContainer,
+  BrandsCardLayout,
+  ProductsCardLayout,
 } from "../components/containers/Containers";
 import { SectionHeader } from "../components/headers/Headers";
 import { SpacerRow } from "../components/spacers/Spacers";
@@ -21,10 +21,10 @@ export default function Home() {
             <Carousel />
             <SpacerRow height={32} />
             <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
-            <BrandsContainer />
+            <BrandsCardLayout />
             <SpacerRow height={32} />
             <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
-            <ProductsContainer />
+            <ProductsCardLayout />
             <SpacerRow height={16} />
           </div>
         </div>
