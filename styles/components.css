@@ -11,8 +11,9 @@
   background: var(--white);
 }
 
-.selector-background {
+.selector-background-border {
   background: var(--white);
+  border: 1px solid var(--border);
 }
 
 .selector-button {
@@ -64,6 +65,11 @@
   border: 1px dashed var(--divider);
 }
 
-.link {
-  color: var(--eezee-blue);
+.icon-colour {
+  color: var(--grey-primary);
+}
+
+.quantity-indicator-bg-colour {
+  color: var(--white);
+  background: var(--eezee-blue);
 }

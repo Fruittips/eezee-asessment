@@ -1,21 +1,22 @@
+import Link from "next/link";
 import { PlusButton, MinusButton } from "../buttons/Buttons";
 
 export function CategorySortingSelector({}) {
   //button turns blue when selected
   return (
-    <div className="selector-button-rows flex-row row-middle">
-      <a href="/products?sortBy=relevance">
+    <div className="selector-button-rows flex-row link-no-colour">
+      <Link href="/products?sortBy=relevance">
         <span className="selector-button">Relevance</span>
-      </a>
-      <a href="/products?sortBy=priceHighToLow">
+      </Link>
+      <Link href="/products?sortBy=priceHighToLow">
         <span className="selector-button">Price: High to Low</span>
-      </a>
-      <a href="/products?sortBy=priceHighToLow">
+      </Link>
+      <Link href="/products?sortBy=priceHighToLow">
         <span className="selector-button">Price: Low to High</span>
-      </a>
+      </Link>
       <style jsx>{`
         .selector-button-rows {
-          height: 34px;
+          height: 32px;
         }
         :nth-child(1) {
           border-radius: 2px 0 0 2px;
@@ -33,9 +34,11 @@ export function QuantitySelector({ quantityNumber }) {
   return (
     <div className="flex-row row-middle">
       <span className="quantity-text-container">Quantity</span>
-      <div className="flex-row row-middle selector-container card-border-background">
+      <div className="flex-row row-middle selector-container">
         <MinusButton />
-        <span className="text-input">{quantityNumber}</span>
+        <span className="text-input selector-background-border">
+          {quantityNumber}
+        </span>
         <PlusButton />
       </div>
       <style jsx>{`
@@ -48,8 +51,11 @@ export function QuantitySelector({ quantityNumber }) {
         }
 
         .text-input {
-          text-align: center;
+          padding: 4px;
+          height: 100%;
           width: 56px;
+          margin: -1px;
+          text-align: center;
         }
       `}</style>
     </div>

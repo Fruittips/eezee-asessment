@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { EEZEE_LOGO_URL } from "../../public/static/images/imageUrls";
+import Link from "next/link";
 import { CartIconButton } from "../buttons/Buttons";
 
 export default function ToolBar() {
@@ -7,18 +7,25 @@ export default function ToolBar() {
     <div className="container-main toolbar-border-background">
       <div className="max-width-default">
         <div className="container-tool-top flex-row row-space-between row-middle full-height">
-          <Image
-            src={EEZEE_LOGO_URL}
-            alt="Eezee Logo"
-            width="150"
-            height="44"
-          />
-          <CartIconButton />
+          <Link href="/">
+            <div>
+              <Image
+                className="link"
+                src="/static/images/EezeeLogo.png"
+                alt="Eezee Logo"
+                width="150"
+                height="44"
+              />
+            </div>
+          </Link>
+          <div className="cart-container">
+            <CartIconButton />
+          </div>
         </div>
         <div className="container-tool-bottom flex-row row-middle full-height">
-          <a href="/brands">
-            <span>View All Brands</span>
-          </a>
+          <Link href="/brands">
+            <span className="link">View All Brands</span>
+          </Link>
         </div>
       </div>
       <style jsx>{`
@@ -32,6 +39,11 @@ export default function ToolBar() {
 
         .container-tool-bottom {
           height: 38px;
+        }
+
+        .cart-container {
+          height: 40px;
+          width: 40px;
         }
       `}</style>
     </div>

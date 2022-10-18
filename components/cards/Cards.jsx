@@ -1,10 +1,11 @@
-import {
-  AddCartButton,
-  AddFavouriteButton,
-  PlusButton,
-  MinusButton,
-} from "../buttons/Buttons";
+import Link from "next/link";
+import { AddCartButton, AddFavouriteButton } from "../buttons/Buttons";
 import { QuantitySelector } from "../selectors/Selectors";
+
+/*ProductCardFull split into 3 different parts: 
+1. ProductCardFullTitleBrand - for the top portion
+2. ProductCardFullImages - for the middle portion
+3. ProductCardFullDescription - for the bottom portion */
 
 function ProductCardFullTitleBrand({}) {
   return (
@@ -138,14 +139,16 @@ export function OrderCard() {
   return (
     <div className="order-card flex-col card-border-radius card-border-background">
       <div className="flex-col">
-        <div className="price-container">$$$$ 6000</div>
+        <div className="price-container">$6000</div>
         <div className="divider solid" />
         <div className="quantity-container">
           <QuantitySelector />
         </div>
-        <div className="buttons-container">
+        <div className="buttons-container flex-col">
           <AddCartButton onClick={() => console.log("add to cart")} />
-          <AddFavouriteButton />
+          <AddFavouriteButton
+            onClick={() => console.log("add to favourites")}
+          />
         </div>
       </div>
       <style jsx>{`
@@ -162,6 +165,11 @@ export function OrderCard() {
           height: 32px;
           margin-top: 24px;
         }
+
+        .buttons-container {
+          margin-top: 24px;
+          gap: 8px;
+        }
       `}</style>
     </div>
   );
@@ -169,73 +177,77 @@ export function OrderCard() {
 
 export function BrandCard({ brand }) {
   return (
-    <div>
-      <div className="brand-card flex-col card-border-background card-border-radius">
-        <div className="brand-card-title ">
-          <a href={null}>
-            <span>image-logo</span>
-          </a>
-        </div>
+    <Link href="/brands">
+      <div className="link-no-colour">
+        <div className="brand-card flex-col card-border-background card-border-radius">
+          <div className="brand-card-title ">
+            <a href={null}>
+              <span>image-logo</span>
+            </a>
+          </div>
 
-        <div className="brand-card-details flex-col">
-          <span>brand title</span>
-          <span>brand details</span>
+          <div className="brand-card-details flex-col">
+            <span>brand title</span>
+            <span>brand details</span>
+          </div>
         </div>
+        <style jsx>
+          {`
+            .brand-card {
+              height: 157px;
+              width: 193px;
+              padding: 4px;
+            }
+
+            .brand-card-title {
+              height: 101px;
+            }
+
+            .brand-card-details {
+              height: 54px;
+            }
+          `}
+        </style>
       </div>
-      <style jsx>
-        {`
-          .brand-card {
-            height: 157px;
-            width: 193px;
-            padding: 4px;
-          }
-
-          .brand-card-title {
-            height: 101px;
-          }
-
-          .brand-card-details {
-            height: 54px;
-          }
-        `}
-      </style>
-    </div>
+    </Link>
   );
 }
 
 export function ProductCardVertical({ product }) {
   return (
-    <div>
-      <div className="product-card card-border-background card-border-radius">
-        <div className="product-card-img">
-          <span>product image</span>
+    <Link href="/products">
+      <div className="link-no-colour">
+        <div className="product-card card-border-background card-border-radius">
+          <div className="product-card-img">
+            <span>product image</span>
+          </div>
+          <div>tags</div>
+          <div className="product-card-details">
+            <div>offer-price</div>
+            <div>actual price</div>
+            <div>long description</div>
+          </div>
         </div>
-        <div>tags</div>
-        <div className="product-card-details">
-          <div>offer-price</div>
-          <div>actual price</div>
-          <div>long description</div>
-        </div>
+        <style jsx>
+          {`
+            .product-card {
+              height: 333px;
+              width: 193px;
+              padding: 4px;
+            }
+
+            .product-card-img {
+              height: 175px;
+              width: 175px;
+            }
+
+            .product-card-details {
+              height: 140px;
+              width: 100%;
+            }
+          `}
+        </style>
       </div>
-      <style jsx>
-        {`
-          .product-card {
-            height: 333px;
-            width: 193px;
-            padding: 4px;
-          }
-
-          .product-card-img {
-            height: 175px;
-            width: 175px;
-          }
-
-          .product-card-details {
-            height: 140px;
-            width: 100%;
-          }
-        `}
-      </style>
-    </div>
+    </Link>
   );
 }

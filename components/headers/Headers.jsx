@@ -9,22 +9,34 @@ brand-header
 
 section-header (for headers + sub-headers + view more link + carot icon)
 */
+import Link from "next/link";
+import { RightOutlined } from "@ant-design/icons";
 
-export function SectionHeader({ title, subtitle, onClick }) {
+export function SectionHeader({ title, subtitle, href }) {
   return (
     <div className="flex-row row-space-between margin-bottom row-bottom">
-      <div className="flex-col gap">
-        <span>Title Bolded</span>
-        <span>Subtitle</span>
+      <div className="flex-col top-bottom-gap">
+        <span>{title}</span>
+        <span>{subtitle}</span>
       </div>
-      <div>View More button Link</div>
+      <Link href={href}>
+        <div className="flex-row row-middle left-right-gap link ">
+          <span>View More</span>
+          <RightOutlined style={{ fontSize: "14px" }} />
+        </div>
+      </Link>
       <style jsx>
         {`
-          .gap {
+          .top-bottom-gap {
             gap: 4px 0px;
           }
+
           .margin-bottom {
             margin-bottom: 12px;
+          }
+
+          .left-right-gap {
+            gap: 0px 4px;
           }
         `}
       </style>

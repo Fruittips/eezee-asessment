@@ -10,6 +10,10 @@ import { SectionHeader } from "../components/headers/Headers";
 import { SpacerRow } from "../components/spacers/Spacers";
 
 export default function Home() {
+  //TODO: look at get server side props etc. with a valid reason
+
+  //call services to get product here
+
   return (
     <div>
       <Head title={"Home-Eezee Internship Assessment"} />
@@ -20,11 +24,19 @@ export default function Home() {
             <SpacerRow height={16} />
             <Carousel />
             <SpacerRow height={32} />
-            <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
+            <SectionHeader
+              title={"Featured Brands"}
+              subtitle={"Browse the full catalog of brands today"}
+              href={"/brands"}
+            />
             <BrandsCardLayout />
             <SpacerRow height={32} />
-            <SectionHeader title={""} subtitle={""} onClick={() => null} />{" "}
-            <ProductsCardLayout />
+            <SectionHeader
+              title={"Our Products"}
+              subtitle={"Trusted by the best companies in Asia"}
+              href={"/products"}
+            />
+            <ProductsCardLayout columns={6} />
             <SpacerRow height={16} />
           </div>
         </div>

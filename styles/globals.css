@@ -14,6 +14,22 @@
   --foreground: #f5f5f7;
   --border: #d7d8db;
   --divider: #e4e5e7;
+
+  --font-family: ;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+
+  --font-weight-md: 400;
+  --font-weight-lg: 500;
+  --font-weight-xl: 700;
+
+  --line-height-sm: 16px;
+  --line-height-md: 20px;
+  --line-height-lg: 22px;
+  --line-height-xl: 28px;
 }
 
 *,
@@ -34,6 +50,16 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.link {
+  color: var(--eezee-blue);
+  cursor: pointer;
+}
+
+.link-no-colour {
+  cursor: pointer;
 }
 
 .full-height {
@@ -56,4 +82,12 @@ a {
   padding-bottom: 48px;
   min-height: 100vh;
   background: var(--foreground);
+}
+
+.border-top {
+  border-top: 1px solid var(--border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border);
 }

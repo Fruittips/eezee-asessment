@@ -10,7 +10,6 @@
 .row-space-between {
   justify-content: space-between;
 }
-
 .row-flex-start {
   justify-content: start;
 }
@@ -32,16 +31,12 @@
 }
 
 .col-center {
-  justify-content: center;
+  align-items: center;
 }
 
 .flex-center {
   justify-content: center;
   align-items: center;
-}
-
-.flex-gap {
-  gap: 8px;
 }
 
 .flex-wrap {

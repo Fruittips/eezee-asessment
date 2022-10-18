@@ -1,4 +1,3 @@
-import { useState, useEffect, useContext } from "react";
 import { SpacerRow } from "../components/spacers/Spacers";
 import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
