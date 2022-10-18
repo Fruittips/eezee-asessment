@@ -73,3 +73,24 @@
   color: var(--white);
   background: var(--eezee-blue);
 }
+
+.flag {
+  height: 20px;
+  padding: 0px 4px;
+  border-radius: 2px;
+}
+
+.flag.vip {
+  color: var(--eezee-blue-dark);
+  background: var(--eezee-blue-light);
+}
+
+.flag.bulk-discount {
+  color: var(--eezee-yellow-dark);
+  background: var(--eezee-yellow-light);
+}
+
+.flag.moq {
+  color: var(--grey-base);
+  background: var(--background);
+}

@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import Head from "../../../components/Head";
 import { SpacerRow } from "../../../components/spacers/Spacers";
 import AppBar from "../../../components/appbar/AppBar";
-import { ProductCardFull, OrderCard } from "../../../components/cards/Cards";
+import { ProductCardFull } from "../../../components/cards/LargeCards";
+import { OrderCard } from "../../../components/cards/SmallCards";
 
 export default function ProductsById() {
   // TODO: figure out who the routing for products filter and the single product will work

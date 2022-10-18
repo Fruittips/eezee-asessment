@@ -11,7 +11,7 @@ export function CategorySortingSelector({}) {
       <Link href="/products?sortBy=priceHighToLow">
         <span className="selector-button">Price: High to Low</span>
       </Link>
-      <Link href="/products?sortBy=priceHighToLow">
+      <Link href="/products?sortBy=priceLowToHigh">
         <span className="selector-button">Price: Low to High</span>
       </Link>
       <style jsx>{`

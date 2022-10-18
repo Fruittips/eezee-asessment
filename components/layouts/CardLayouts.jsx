@@ -1,4 +1,4 @@
-import { BrandCard, ProductCardVertical } from "../cards/Cards";
+import { BrandCard, ProductCardVertical } from "../cards/SmallCards";
 
 export function BrandsCardLayout({ brands }) {
   return (

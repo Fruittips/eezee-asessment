@@ -1,4 +1,4 @@
-# Eezee Internship Frontend Assessment
+# Eezee Frontend Internship Assessment
 
 Author: Mah Yi Da
 
