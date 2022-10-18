@@ -1,0 +1,11 @@
+.grid-space-between {
+  display: grid;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.grid-default {
+  display: grid;
+  justify-content: flex-start;
+  align-items: start;
+}

@@ -5,7 +5,7 @@ import Carousel from "../components/carousels/Carousels";
 import {
   BrandsCardLayout,
   ProductsCardLayout,
-} from "../components/containers/Containers";
+} from "../components/layouts/CardLayouts";
 import { SectionHeader } from "../components/headers/Headers";
 import { SpacerRow } from "../components/spacers/Spacers";
 

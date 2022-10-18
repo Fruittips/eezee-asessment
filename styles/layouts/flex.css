@@ -20,6 +20,10 @@
 }
 
 .row-center {
+  justify-content: center;
+}
+
+.row-middle {
   align-items: center;
 }
 
@@ -44,7 +48,7 @@
   flex-wrap: wrap;
 }
 
-/* TODO: remove this test border */
-.test-border {
-  border: 1px solid blue;
+.flex-wrap-none-overflow-ellipsis {
+  flex-wrap: nowrap;
+  overflow: ellipsis;
 }

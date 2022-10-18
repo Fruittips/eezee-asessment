@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { SpacerRow } from "../components/spacers/Spacers";
 import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
-import { BrandsCardLayout } from "../components/containers/Containers";
+import { BrandsCardLayout } from "../components/layouts/CardLayouts";
 import Head from "../components/Head";
 
 export default function Brands() {
