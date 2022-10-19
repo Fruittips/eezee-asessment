@@ -1,9 +1,10 @@
+import { useContext } from "react";
 import Image from "next/image";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
-import { useCartQuantityContext } from "../../context/cartQuantityContext";
+import { cartQuantityContext } from "../../context/cartQuantityContext";
 
 export function CartIconButton() {
-  const [cartQuantity] = useCartQuantityContext();
+  const [cartQuantity] = useContext(cartQuantityContext);
 
   return (
     <div className="flex-col col-center t-grey-primary">
@@ -43,7 +44,7 @@ export function CartIconButton() {
 export function AddCartButton({ onClick }) {
   return (
     <button
-      className="add-cart-button link-no-colour d-body"
+      className="button button-add-cart link-no-colour d-body"
       onClick={() => onClick()}
     >
       Add to Cart
@@ -58,9 +59,8 @@ export function AddCartButton({ onClick }) {
 
 export function AddFavouriteButton() {
   return (
-    <button className="favourite-button full-width d-body">
+    <button className="button button-favourite full-width d-body t-eezee-blue bg-white">
       Add to Favourites
-      <style jsx>{``}</style>
     </button>
   );
 }
@@ -68,7 +68,7 @@ export function AddFavouriteButton() {
 export function PlusButton({ onClick }) {
   return (
     <button
-      className="plus-button selector-background-border flex-col flex-center t-eezee-blue link-no-colour"
+      className="plus-button button-selector flex-col flex-center t-eezee-blue link-no-colour"
       onClick={onClick}
     >
       <PlusOutlined />
@@ -86,7 +86,7 @@ export function PlusButton({ onClick }) {
 export function MinusButton({ onClick, isValid }) {
   return (
     <button
-      className={`minus-button selector-background-border flex-col flex-center ${
+      className={`minus-button button-selector flex-col flex-center ${
         isValid ? "t-eezee-blue link-no-colour" : "disabled"
       }`}
       onClick={onClick}
@@ -95,7 +95,6 @@ export function MinusButton({ onClick, isValid }) {
       <style jsx>{`
         .minus-button {
           height: 100%;
-          padding: 6px 16px;
           border-radius: 4px 0 0 4px;
         }
       `}</style>

@@ -1,15 +1,15 @@
+import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { AddCartButton, AddFavouriteButton } from "../buttons/Buttons";
 import { QuantitySelector } from "../selectors/Selectors";
-import { VipPriceFlag, BulkDiscountFlag, MoqFlag } from "../flags/Flags";
-import { useCartQuantityContext } from "../../context/cartQuantityContext";
+import { VipPriceTag, BulkDiscountTag, MoqTag } from "../tags/Tags";
+import { cartQuantityContext } from "../../context/cartQuantityContext";
 
 export function OrderCard({ lowPrice, highPrice }) {
   const [quantity, setQuantity] = useState(1);
-  const [cartQuantityContext, setCartQuantityContext] =
-    useCartQuantityContext();
+  const [cartQuantity, setCartQuantity] = useContext(cartQuantityContext);
 
   return (
     <div className="order-card flex-col card-border-radius card-border-background">
@@ -26,9 +26,7 @@ export function OrderCard({ lowPrice, highPrice }) {
         </div>
         <div className="buttons-container flex-col">
           <AddCartButton
-            onClick={() =>
-              setCartQuantityContext(cartQuantityContext + quantity)
-            }
+            onClick={() => setCartQuantity(cartQuantity + quantity)}
           />
           <AddFavouriteButton />
         </div>
@@ -123,11 +121,11 @@ export function ProductCardVertical({ product }) {
           <div className="product-card-img">
             <Image src={imageUrl} alt="Product Image" layout="fill" />
           </div>
-          <div className="flags-container">
+          <div className="tags-container">
             <div className="flex-col row-center row-start">
-              <VipPriceFlag isVipPrice={vipPriceFlag} />
-              <BulkDiscountFlag isBulkDiscount={bulkDiscountFlag} />
-              <MoqFlag moqNumber={moq} />
+              <VipPriceTag isVipPrice={vipPriceFlag} />
+              <BulkDiscountTag isBulkDiscount={bulkDiscountFlag} />
+              <MoqTag moqNumber={moq} />
             </div>
           </div>
           <div className="product-card-details">
@@ -161,7 +159,7 @@ export function ProductCardVertical({ product }) {
               width: 100%;
             }
 
-            .flags-container {
+            .tags-container {
               margin: 8px 0px;
             }
           `}

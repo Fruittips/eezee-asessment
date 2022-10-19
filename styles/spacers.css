@@ -1,0 +1,10 @@
+.divider {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.divider.solid {
+  border: 1px dashed var(--divider);
+}

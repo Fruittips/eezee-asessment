@@ -21,27 +21,27 @@ export function CategorySortingSelector({ params }) {
   };
 
   return (
-    <div className="selector-button-rows flex-row link-no-colour d-caption">
+    <div className="button-selector-rows flex-row link-no-colour d-caption">
       <span
-        className={`selector-button ${renderSelected("relevance")}`}
+        className={`button-selector ${renderSelected("relevance")}`}
         onClick={() => pushParams("relevance")}
       >
         Relevance
       </span>
       <span
-        className={`selector-button ${renderSelected("HighToLow")}`}
+        className={`button-selector ${renderSelected("HighToLow")}`}
         onClick={() => pushParams("HighToLow")}
       >
         Price: High to Low
       </span>
       <span
-        className={`selector-button ${renderSelected("LowToHigh")}`}
+        className={`button-selector ${renderSelected("LowToHigh")}`}
         onClick={() => pushParams("LowToHigh")}
       >
         Price: Low to High
       </span>
       <style jsx>{`
-        .selector-button-rows {
+        .button-selector-rows {
           height: 32px;
         }
         :nth-child(1) {

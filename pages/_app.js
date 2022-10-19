@@ -1,9 +1,13 @@
+import "antd/dist/antd.min.css";
 import "../styles/layouts/flex.css";
 import "../styles/layouts/grid.css";
-import "../styles/components.css";
+import "../styles/buttons.css";
+import "../styles/cards.css";
+import "../styles/spacers.css";
+import "../styles/colours.css";
+import "../styles/tags.css";
 import "../styles/typography.css";
 import "../styles/globals.css";
-import "antd/dist/antd.min.css";
 
 import { CartWrapper } from "../context/cartQuantityContext";
 

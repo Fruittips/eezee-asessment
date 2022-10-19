@@ -1,6 +1,6 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext } from "react";
 
-const cartQuantityContext = createContext();
+export const cartQuantityContext = createContext();
 
 export function CartWrapper({ children }) {
   const [cartQuantity, setCartQuantity] = useState(0);
@@ -10,8 +10,4 @@ export function CartWrapper({ children }) {
       {children}
     </cartQuantityContext.Provider>
   );
-}
-
-export function useCartQuantityContext() {
-  return useContext(cartQuantityContext);
 }

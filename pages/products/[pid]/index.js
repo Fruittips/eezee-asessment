@@ -1,4 +1,3 @@
-import useApiService from "../../../hooks/useApiService";
 import { useRouter } from "next/router";
 import Head from "../../../components/Head";
 import { SpacerRow } from "../../../components/spacers/Spacers";
@@ -11,9 +10,17 @@ export default function ProductsById() {
   const router = useRouter();
   const { pid } = router.query;
 
-  const [product, setProduct] = useApiService(() => getProductFullInfo(pid), {
-    dependencies: [pid],
-  });
+  const product = getProductFullInfo(pid);
+
+  if (product == null) {
+    return (
+      <div>
+        <Head title={"Product Page - Eezee Internship Assessment"} />
+        <AppBar />
+        Product Not Found! Go back to home page!
+      </div>
+    );
+  }
 
   return (
     <div>

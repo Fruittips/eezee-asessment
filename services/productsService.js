@@ -6,13 +6,13 @@ export function getAllProducts(sortBy) {
       return productsJson.sort((prev, next) => next.highPrice - prev.highPrice);
     case "LowToHigh":
       return productsJson.sort((prev, next) => prev.lowPrice - next.lowPrice);
-    case "relevance":
-      return productsJson;
     default:
       return productsJson;
   }
 }
 
 export function getProductFullInfo(id) {
-  return productsJson.filter((product) => product.id === id)[0];
+  const filteredProduct = productsJson.filter((product) => product.id === id);
+
+  return filteredProduct.length > 0 ? filteredProduct[0] : null;
 }

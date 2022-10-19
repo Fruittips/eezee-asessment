@@ -1,0 +1,8 @@
+.card-border-radius {
+  border-radius: 4px;
+}
+
+.card-border-background {
+  border: 1px solid var(--border);
+  background: var(--white);
+}
