@@ -10,27 +10,40 @@ Styling: styled-jsx and css classes
 ## How to Run App
 
 1. git clone https://github.com/Fruittips/eezee-asessment.git
+
 2. cd into `eezee-assessment` folder
+
 3. Run `npm install` to install dependencies
+
 4. Run `npm run dev` on root folder to start development server
+
 5. Open http://localhost:3000/ to view application
 
 ## Features
 
 1. Persistence of cart quantity across all pages within the application
+
 2. Products could be sorted from price "High to Low" and price "Low to High"
+
 3. Brands are listed alphabetically in the `/brands` page
+
 4. All brands and products are listed on their respective pages
+
 5. Featured brands are listed on Home page.
+
 6. Usage of links and buttons to redirect to different pages of the application
 
 ## Design Considerations
 
 1. Usage of css files together with styled-jsx to allow for modular styling and reusability within the application.
+
 2. Usage of custom hooks such as `useApiService.js` to allow for data fetching without repeating lines of code across all pages.
+
 3. Separating components into different categories within the application allows for better maintainability and reading experience for developers.
-4. Certain parts of the application maintains its state independently, allowing for better isolation of code.
-5. Usage of query params and query slugs, to allow for users resume back to page with the same url the user left off at.
+
+4. Certain parts of the application maintains its state independently, allowing for better isolation of code and component reusability
+
+5. Usage of query params and query slugs, to allow for other users to resume back to page with the same url the user left off at.
 
 ## File Structure
 
@@ -61,9 +74,11 @@ Styling: styled-jsx and css classes
 ## Challenges
 
 1. Initial set-up of the entire project structure took a considerate amount of time. Much consideration was made in making sure project structure was modular enough to be scaled.
-2. Coming up with common css classes to be used throughout the application. I was not as familiar as to how I should structure my css classes such that they can be reused as much as possible.
+
+2. Coming up with common css classes to be used throughout the application as I was not as familiar with how to best use css files and styled-jsx.
 
 ## Things to improve on
 
-1. Usage of resusable css classes for styling within the application could be improved further.
-2. To provide user feedback upon every action or interaction in the application to improve user experience.
+1. Usage of resusable css classes for styling within the application could be improved further. There could be more categories included. For example, a separate css file for padding, space-related styling.
+
+2. To provide more user feedback. Such as notification to indicate user has successfully added item to cart. Providing an error message upon invalid input in the quantity number field for products.
