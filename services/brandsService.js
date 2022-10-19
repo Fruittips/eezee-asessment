@@ -1,7 +1,13 @@
 import brandsJson from "../public/static/data/brands.json";
 
 export function getAllBrands({ isSorted = false }) {
-  return isSorted ? _categoriseBrandsAlphabetically(brandsJson) : brandsJson;
+  return isSorted
+    ? _categoriseBrandsAlphabetically(brandsJson)
+    : _getFeaturedBrands(brandsJson);
+}
+
+function _getFeaturedBrands(brands) {
+  return brands.filter((brand) => brand.featured === true);
 }
 
 function _sortBrandsAlphabetically(brands) {
