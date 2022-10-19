@@ -1,5 +1,3 @@
-import { useState, useEffect, useContext } from "react";
-
 import useApiService from "../../../hooks/useApiService";
 import { useRouter } from "next/router";
 import Head from "../../../components/Head";
@@ -21,7 +19,7 @@ export default function ProductsById() {
     <div>
       <Head title={"Product Page - Eezee Internship Assessment"} />
       <AppBar />
-      <div className="body-foreground">
+      <div className="body-foreground bg-foreground">
         <div className="max-width-default">
           <SpacerRow height={24} />
           <div className="grid-space-between col-2">

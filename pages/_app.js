@@ -5,7 +5,7 @@ import "../styles/typography.css";
 import "../styles/globals.css";
 import "antd/dist/antd.min.css";
 
-import { CartWrapper } from "../context/cartContext";
+import { CartWrapper } from "../context/cartQuantityContext";
 
 function MyApp({ Component, pageProps }) {
   return (

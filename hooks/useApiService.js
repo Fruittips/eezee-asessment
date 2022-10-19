@@ -7,8 +7,9 @@ export default function useApiService(apiServiceCallback, options = {}) {
 
   useEffect(() => {
     const responseData = apiServiceCallback();
+
     setData(responseData);
-  }, [dependencies]);
+  }, dependencies);
 
   return [data, setData];
 }

@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
-import { useCartQuantityContext } from "../../context/cartContext";
+import { useCartQuantityContext } from "../../context/cartQuantityContext";
 
 export function CartIconButton() {
   const [cartQuantity] = useCartQuantityContext();
 
   return (
-    <div className="flex-col col-center icon-colour">
+    <div className="flex-col col-center t-grey-primary">
       <div className="icon-size">
-        <div className="quantity-indicator quantity-indicator-bg-colour flex-col col-center">
+        <div className="quantity-indicator flex-col flex-center t-white bg-eezee-blue">
           {cartQuantity}
         </div>
         <Image
@@ -43,7 +43,7 @@ export function CartIconButton() {
 export function AddCartButton({ onClick }) {
   return (
     <button
-      className="add-cart-button link-no-colour"
+      className="add-cart-button link-no-colour d-body"
       onClick={() => onClick()}
     >
       Add to Cart
@@ -58,7 +58,7 @@ export function AddCartButton({ onClick }) {
 
 export function AddFavouriteButton() {
   return (
-    <button className="favourite-button full-width">
+    <button className="favourite-button full-width d-body">
       Add to Favourites
       <style jsx>{``}</style>
     </button>
@@ -68,7 +68,7 @@ export function AddFavouriteButton() {
 export function PlusButton({ onClick }) {
   return (
     <button
-      className="plus-button selector-background-border flex-col flex-center blue-colour"
+      className="plus-button selector-background-border flex-col flex-center t-eezee-blue link-no-colour"
       onClick={onClick}
     >
       <PlusOutlined />
@@ -87,7 +87,7 @@ export function MinusButton({ onClick, isValid }) {
   return (
     <button
       className={`minus-button selector-background-border flex-col flex-center ${
-        isValid ? "blue-colour" : "disabled"
+        isValid ? "t-eezee-blue link-no-colour" : "disabled"
       }`}
       onClick={onClick}
     >

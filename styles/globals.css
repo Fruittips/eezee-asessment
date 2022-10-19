@@ -14,22 +14,6 @@
   --foreground: #f5f5f7;
   --border: #d7d8db;
   --divider: #e4e5e7;
-
-  --font-family: ;
-
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 20px;
-
-  --font-weight-md: 400;
-  --font-weight-lg: 500;
-  --font-weight-xl: 700;
-
-  --line-height-sm: 16px;
-  --line-height-md: 20px;
-  --line-height-lg: 22px;
-  --line-height-xl: 28px;
 }
 
 *,
@@ -53,13 +37,30 @@ a {
   cursor: pointer;
 }
 
-.link {
-  color: var(--eezee-blue);
-  cursor: pointer;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
 }
 
-.link-no-colour {
-  cursor: pointer;
+input[type="number"],
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: textfield;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: var(--eezee-blue);
+  z-index: 2;
 }
 
 .full-height {
@@ -81,7 +82,6 @@ a {
 .body-foreground {
   padding-bottom: 48px;
   min-height: 100vh;
-  background: var(--foreground);
 }
 
 .border-top {
@@ -92,23 +92,136 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-/* TODO: used in Minus/Plus buttons */
-.blue-colour {
+.disabled {
+  color: var(--gray-primary);
+  background: var(--background);
+  pointer-events: none;
+}
+
+.active {
+  color: var(--eezee-blue);
+  background: var(--eezee-blue-light);
+  border: 1px solid var(--eezee-blue);
+}
+
+/* Text Colours */
+.t-white {
+  color: var(--white);
+}
+
+.t-grey-base {
+  color: var(--grey-base);
+}
+
+.t-grey-primary {
+  color: var(--grey-primary);
+}
+
+.t-grey-secondary {
+  color: var(--grey-secondary);
+}
+
+.t-grey-tertiary {
+  color: var(--grey-tertiary);
+}
+
+.t-eezee-yellow {
+  color: var(--eezee-yellow);
+}
+
+.t-eezee-yellow-light {
+  color: var(--eezee-yellow-light);
+}
+
+.t-eezee-yellow-dark {
+  color: var(--eezee-yellow-dark);
+}
+
+.t-eezee-blue {
   color: var(--eezee-blue);
 }
 
-input[type="number"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+.t-eezee-blue-light {
+  color: var(--eezee-blue-light);
 }
 
-input:focus {
-  outline: none !important;
-  border-color: var(--eezee-blue);
-  z-index: 2;
+.t-eezee-blue-dark {
+  color: var(--eezee-blue-dark);
+}
+
+.t-background {
+  color: var(--background);
+}
+
+.t-foreground {
+  color: var(--foreground);
+}
+
+.t-border {
+  color: var(--border);
+}
+
+.t-divider {
+  color: var(--divider);
+}
+
+/* Background Colours */
+.bg-white {
+  background: var(--white);
+}
+
+.bg-grey-base {
+  background: var(--grey-base);
+}
+
+.bg-grey-primary {
+  background: var(--grey-primary);
+}
+
+.bg-grey-secondary {
+  background: var(--grey-secondary);
+}
+
+.bg-grey-tertiary {
+  background: var(--grey-tertiary);
+}
+
+.bg-eezee-yellow {
+  background: var(--eezee-yellow);
+}
+
+.bg-eezee-yellow-light {
+  background: var(--eezee-yellow-light);
+}
+
+.bg-eezee-yellow-dark {
+  background: var(--eezee-yellow-dark);
+}
+
+.bg-eezee-blue {
+  background: var(--eezee-blue);
+}
+
+.bg-eezee-blue-light {
+  background: var(--eezee-blue-light);
+}
+
+.bg-eezee-blue-dark {
+  background: var(--eezee-blue-dark);
+}
+
+.bg-background {
+  background: var(--background);
+}
+
+.bg-foreground {
+  background: var(--foreground);
+}
+
+.bg-border {
+  background: var(--border);
+}
+
+.bg-divider {
+  background: var(--divider);
 }

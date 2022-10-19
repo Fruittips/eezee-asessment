@@ -5,8 +5,8 @@ export function SectionHeader({ title, subtitle, href }) {
   return (
     <div className="flex-row row-space-between margin-bottom row-bottom">
       <div className="flex-col top-bottom-gap">
-        <span>{title}</span>
-        <span>{subtitle}</span>
+        <span className="d-title t-grey-base">{title}</span>
+        <span className="d-product-title t-grey-primary">{subtitle}</span>
       </div>
       <Link href={href}>
         <div className="flex-row row-middle left-right-gap link ">
@@ -35,7 +35,7 @@ export function SectionHeader({ title, subtitle, href }) {
 
 export function BrandHeader({ alphabet }) {
   return (
-    <div className="brand-header brand-header-background flex-row flex-center">
+    <div className="brand-header flex-row flex-center d-title t-grey-base bg-divider ">
       <span>{alphabet}</span>
       <style jsx>{`
         .brand-header {

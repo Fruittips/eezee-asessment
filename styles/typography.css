@@ -1,2 +1,141 @@
-.title {
+.d-heading {
+  font-weight: 500px;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+.d-sub-heading {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.d-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+}
+
+.d-sub-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.d-product-title-small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.d-product-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.d-body {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.d-body-emphasized {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.d-body-strikethrough {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration-line: line-through;
+}
+
+.d-body-underlined {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration-line: underline;
+}
+
+.d-caption {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.d-caption-emphasized {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.d-caption-strikethrough {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-decoration-line: line-through;
+}
+
+.d-caption-underlined {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-decoration-line: underline;
+}
+
+.d-display {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.d-display-strikethrough {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.d-display-emphasized {
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.d-body-mono {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.input-field-box-shadow {
+  background: #c4c4c4;
+  box-shadow: 0px 0px 3px #2a64db;
+}
+
+/* To match descriptionHtml for large product card */
+.md-inline-bold {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.3px;
+  color: var(--grey-base);
+}
+
+.md-block-unstyled,
+.md-block-unordered-list-item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--grey-primary);
+}
+
+.md-block-header-three {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--grey-primary);
 }

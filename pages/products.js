@@ -22,13 +22,15 @@ export default function Products() {
     <div>
       <Head title={"All Products - Eezee Internship Assessment"} />
       <AppBar />
-      <div className="body-foreground">
+      <div className="body-foreground bg-foreground">
         <div className="max-width-default">
           <SpacerRow height={24} />
           <div className="body-container grid-default">
             <div className="product-filter-column flex-col">
-              <div>Products</div>
-              <div>{products.length} results</div>
+              <div className="d-title t-grey-base">Products</div>
+              <div className="d-body t-grey-secondary">
+                {products.length} results
+              </div>
             </div>
             <div className="product-list-column flex-col">
               <PageLabel results={products.length} />

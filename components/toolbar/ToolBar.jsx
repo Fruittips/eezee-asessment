@@ -22,7 +22,7 @@ export default function ToolBar() {
         </div>
         <div className="container-tool-bottom flex-row row-middle full-height">
           <Link href="/brands">
-            <span className="link">View All Brands</span>
+            <span className="d-body link">View All Brands</span>
           </Link>
         </div>
       </div>

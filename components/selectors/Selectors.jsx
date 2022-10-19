@@ -21,7 +21,7 @@ export function CategorySortingSelector({ params }) {
   };
 
   return (
-    <div className="selector-button-rows flex-row link-no-colour">
+    <div className="selector-button-rows flex-row link-no-colour d-caption">
       <span
         className={`selector-button ${renderSelected("relevance")}`}
         onClick={() => pushParams("relevance")}
@@ -56,11 +56,13 @@ export function CategorySortingSelector({ params }) {
 }
 
 export function QuantitySelector({ quantity, setQuantityHandler }) {
-  const isQuantityValid = quantity > 0 ? true : false;
+  const isQuantityValid = quantity > 1 ? true : false;
 
   return (
     <div className="flex-row row-middle">
-      <span className="quantity-text-container">Quantity</span>
+      <span className="quantity-text-container d-body-emphasized t-grey-primary">
+        Quantity
+      </span>
       <div className="flex-row row-middle selector-container">
         <MinusButton
           onClick={() => setQuantityHandler(quantity - 1)}

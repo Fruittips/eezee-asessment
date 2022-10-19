@@ -11,10 +11,11 @@ function ProductCardFullTitleBrand({ product }) {
       : "";
   return (
     <div className="product-title-model">
-      <div className="product-title">{title}</div>
+      <div className="product-title d-sub-heading">{title}</div>
       <div className="product-model flex-row">
         <span className="logo">
           <Image
+            className="logo"
             src={brandImageUrl}
             alt="Logo"
             width="100px"
@@ -22,11 +23,11 @@ function ProductCardFullTitleBrand({ product }) {
             layout="intrinsic"
           />
         </span>
-        <div className="flex-col">
+        <div className="flex-col d-caption">
           <span>Model:</span>
           <span>Brand:</span>
         </div>
-        <div className="flex-col flex-wrap-none-overflow-ellipsis">
+        <div className="flex-col flex-wrap-none-overflow-ellipsis caption-container d-caption">
           <a href="">
             <span className="link">{model}</span>
           </a>
@@ -59,6 +60,10 @@ function ProductCardFullTitleBrand({ product }) {
             width: 100px;
             margin-right: 16px;
           }
+
+          .caption-container {
+            margin-left: 8px;
+          }
         `}
       </style>
     </div>
@@ -80,7 +85,7 @@ function ProductCardFullImages({ images }) {
     <div className="product-image">
       <div className="image-centerstage flex-row flex-center ">
         <Image
-          src={centerImage}
+          src={centerImage ? centerImage : "data:"}
           alt="Brand Logo"
           width="700px"
           height="358px"

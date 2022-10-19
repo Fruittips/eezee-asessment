@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AddCartButton, AddFavouriteButton } from "../buttons/Buttons";
 import { QuantitySelector } from "../selectors/Selectors";
 import { VipPriceFlag, BulkDiscountFlag, MoqFlag } from "../flags/Flags";
-import { useCartQuantityContext } from "../../context/cartContext";
+import { useCartQuantityContext } from "../../context/cartQuantityContext";
 
 export function OrderCard({ lowPrice, highPrice }) {
   const [quantity, setQuantity] = useState(1);
@@ -14,7 +14,7 @@ export function OrderCard({ lowPrice, highPrice }) {
   return (
     <div className="order-card flex-col card-border-radius card-border-background">
       <div className="flex-col">
-        <div className="price-container">
+        <div className="price-container d-heading t-eezee-blue">
           {lowPrice} - {highPrice}
         </div>
         <div className="divider solid" />
@@ -74,8 +74,10 @@ export function BrandCard({ brand }) {
           </div>
         </div>
         <div className="brand-card-details flex-col col-center">
-          <span>{name}</span>
-          <span>{productCount} Products</span>
+          <span className="d-sub-title t-grey-base">{name}</span>
+          <span className="d-caption t-grey-primary">
+            {productCount} Products
+          </span>
         </div>
       </div>
       <style jsx>
@@ -93,6 +95,7 @@ export function BrandCard({ brand }) {
 
           .brand-card-details {
             height: 54px;
+            text-align: center;
           }
         `}
       </style>
@@ -128,11 +131,11 @@ export function ProductCardVertical({ product }) {
             </div>
           </div>
           <div className="product-card-details">
-            <div>
+            <div className="d-sub-title t-eezee-blue">
               {lowPricePretty} {highPricePretty ? " - " : ""}
               {highPricePretty}
             </div>
-            <div>{title}</div>
+            <div className="d-product-title t-grey-base">{title}</div>
           </div>
         </div>
         <style jsx>
