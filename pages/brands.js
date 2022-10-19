@@ -1,10 +1,10 @@
+import { getAllBrands } from "../services/brandsService";
+import useApiService from "../hooks/useApiService";
 import { SpacerRow } from "../components/spacers/Spacers";
 import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
 import { BrandsCardLayout } from "../components/layouts/CardLayouts";
 import Head from "../components/Head";
-import { getAllBrands } from "../services/brandsService";
-import useApiService from "../hooks/useApiService";
 
 export default function Brands() {
   const [groupedBrands, setGroupedBrands] = useApiService(() => {
