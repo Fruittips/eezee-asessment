@@ -1,13 +1,9 @@
 import Image from "next/image";
-import {
-  PlusOutlined,
-  MinusOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { useCartQuantityContext } from "../../context/cartContext";
 
 export function CartIconButton() {
-  const [cartQuantity, setCartQuantity] = useCartQuantityContext();
+  const [cartQuantity] = useCartQuantityContext();
 
   return (
     <div className="flex-col col-center icon-colour">
@@ -26,8 +22,8 @@ export function CartIconButton() {
       <style jsx>{`
         .icon-size {
           position: relative;
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
         }
 
         .quantity-indicator {

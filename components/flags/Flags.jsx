@@ -1,9 +1,3 @@
-/*
-vip-price-tag
-bulk-discount-tag
-moq-tag
-*/
-
 export function VipPriceFlag({ isVipPrice }) {
   return isVipPrice ? <div className="flag vip test">VIP Price</div> : <></>;
 }

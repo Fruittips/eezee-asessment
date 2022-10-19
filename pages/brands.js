@@ -3,14 +3,15 @@ import AppBar from "../components/appbar/AppBar";
 import { BrandHeader } from "../components/headers/Headers";
 import { BrandsCardLayout } from "../components/layouts/CardLayouts";
 import Head from "../components/Head";
-import {
-  getAllBrands,
-  categoriseBrandsAlphabetically,
-} from "../services/brandsService";
+import { getAllBrands } from "../services/brandsService";
+import useApiService from "../hooks/useApiService";
 
 export default function Brands() {
-  const allBrands = getAllBrands();
-  const groupedBrands = categoriseBrandsAlphabetically(allBrands);
+  const [groupedBrands, setGroupedBrands] = useApiService(() => {
+    const groupedBrands = getAllBrands({ isSorted: true });
+    return groupedBrands;
+  });
+
   return (
     <div>
       <Head title={"All Brands - Eezee Internship Assessment"} />

@@ -18,9 +18,7 @@ export default function ToolBar() {
               />
             </div>
           </Link>
-          <div className="cart-container">
-            <CartIconButton />
-          </div>
+          <CartIconButton />
         </div>
         <div className="container-tool-bottom flex-row row-middle full-height">
           <Link href="/brands">
@@ -39,11 +37,6 @@ export default function ToolBar() {
 
         .container-tool-bottom {
           height: 38px;
-        }
-
-        .cart-container {
-          height: 40px;
-          width: 40px;
         }
       `}</style>
     </div>

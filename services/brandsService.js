@@ -1,17 +1,17 @@
 import brandsJson from "../public/static/data/brands.json";
 
-export function getAllBrands() {
-  return brandsJson;
+export function getAllBrands({ isSorted = false }) {
+  return isSorted ? _categoriseBrandsAlphabetically(brandsJson) : brandsJson;
 }
 
-export function sortBrandsAlphabetically(brands) {
+function _sortBrandsAlphabetically(brands) {
   return brands.sort((prev, next) => {
     return prev.name.localeCompare(next.name);
   });
 }
 
-export function categoriseBrandsAlphabetically(brands) {
-  const sortedBrands = sortBrandsAlphabetically(brands);
+function _categoriseBrandsAlphabetically(brands) {
+  const sortedBrands = _sortBrandsAlphabetically(brands);
 
   const groupedBrands = sortedBrands.reduce((prev, next) => {
     let firstLetter = next.name.charAt(0);
@@ -25,12 +25,3 @@ export function categoriseBrandsAlphabetically(brands) {
 
   return groupedBrands;
 }
-/* categoriseBrandsAlphabetically(brands) returns this: 
-{
-A : { alphabet: 'A',
-      brands: [obj, obj] },
-B : { alphabet: 'B',
-      brands: [obj, obj, obj] },
-.... } 
-}
-*/

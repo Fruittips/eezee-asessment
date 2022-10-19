@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "../components/Head";
 import { SpacerRow } from "../components/spacers/Spacers";
@@ -9,11 +9,9 @@ import { PageLabel } from "../components/labels/Labels";
 import { getAllProducts } from "../services/productsService";
 
 export default function Products() {
-  //TODO: do shallow routing (handle multiple urls without running data fetching methods again)
-  //TODO: get query params and then set state on button based on it
   const [products, setProducts] = useState([]);
   const router = useRouter();
-  const { sortBy } = router.query; //TODO: why must it be placed inside here again
+  const { sortBy } = router.query;
 
   useEffect(() => {
     const sortedProducts = getAllProducts(sortBy);

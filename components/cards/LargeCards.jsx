@@ -2,11 +2,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { stringToHtml } from "../../utils/convertHtml";
 
-/* ProductCardFull split into 3 different parts: 
-1. ProductCardFullTitleBrand - for the top portion
-2. ProductCardFullImages - for the middle portion
-3. ProductCardFullDescription - for the bottom portion */
-
 function ProductCardFullTitleBrand({ product }) {
   const { title } = product;
   const { brand, model } = product.metadata;
@@ -156,7 +151,7 @@ function ProductCardFullDescription({ descriptionHtml }) {
 }
 
 export function ProductCardFull({ product }) {
-  if (!product) {
+  if (!product || product.length === 0) {
     return <></>;
   }
   return (

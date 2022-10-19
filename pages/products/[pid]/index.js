@@ -1,4 +1,6 @@
 import { useState, useEffect, useContext } from "react";
+
+import useApiService from "../../../hooks/useApiService";
 import { useRouter } from "next/router";
 import Head from "../../../components/Head";
 import { SpacerRow } from "../../../components/spacers/Spacers";
@@ -8,15 +10,12 @@ import { OrderCard } from "../../../components/cards/SmallCards";
 import { getProductFullInfo } from "../../../services/productsService";
 
 export default function ProductsById() {
-  const [product, setProduct] = useState(null);
-
   const router = useRouter();
+  const { pid } = router.query;
 
-  useEffect(() => {
-    const { pid } = router.query;
-    const product = getProductFullInfo(pid);
-    setProduct(product);
-  }, [router.query]);
+  const [product, setProduct] = useApiService(() => getProductFullInfo(pid), {
+    dependencies: [pid],
+  });
 
   return (
     <div>
@@ -44,5 +43,3 @@ export default function ProductsById() {
     </div>
   );
 }
-
-//TODO: refactor the grid layouts into css

@@ -92,7 +92,7 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-/* used in Minus/Plus buttons */
+/* TODO: used in Minus/Plus buttons */
 .blue-colour {
   color: var(--eezee-blue);
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import useApiService from "../hooks/useApiService";
 import Head from "../components/Head";
 import AppBar from "../components/appbar/AppBar";
 import Carousel from "../components/carousels/Carousels";
@@ -12,8 +12,10 @@ import { getAllProducts } from "../services/productsService";
 import { getAllBrands } from "../services/brandsService";
 
 export default function Home() {
-  const products = getAllProducts("LowToHigh");
-  const brands = getAllBrands();
+  const [products, setProducts] = useApiService(getAllProducts);
+  const [brands, setBrands] = useApiService(() =>
+    getAllBrands({ isSorted: false })
+  );
 
   return (
     <div>
