@@ -55,8 +55,6 @@ export function CategorySortingSelector({ params }) {
   );
 }
 
-import { useState, useEffect } from "react";
-
 export function QuantitySelector({ quantity, setQuantityHandler }) {
   const isQuantityValid = quantity > 0 ? true : false;
 

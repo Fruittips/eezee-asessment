@@ -27,7 +27,10 @@ export default function ProductsById() {
           <SpacerRow height={24} />
           <div className="grid-space-between col-2">
             <ProductCardFull product={product} />
-            <OrderCard />
+            <OrderCard
+              lowPrice={product?.lowPricePretty}
+              highPrice={product?.highPricePretty}
+            />
           </div>
         </div>
       </div>

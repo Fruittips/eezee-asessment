@@ -30,7 +30,7 @@ export default function Home() {
               subtitle={"Browse the full catalog of brands today"}
               href={"/brands"}
             />
-            <BrandsCardLayout brands={brands} />
+            <BrandsCardLayout brands={brands} isFeatured={true} />
             <SpacerRow height={32} />
             <SectionHeader
               title={"Our Products"}

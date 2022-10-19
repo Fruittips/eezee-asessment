@@ -6,16 +6,17 @@ import { QuantitySelector } from "../selectors/Selectors";
 import { VipPriceFlag, BulkDiscountFlag, MoqFlag } from "../flags/Flags";
 import { useCartQuantityContext } from "../../context/cartContext";
 
-export function OrderCard() {
+export function OrderCard({ lowPrice, highPrice }) {
   const [quantity, setQuantity] = useState(1);
-  const [isQuantityValid, setIsQuantityValid] = useState(true);
   const [cartQuantityContext, setCartQuantityContext] =
     useCartQuantityContext();
 
   return (
     <div className="order-card flex-col card-border-radius card-border-background">
       <div className="flex-col">
-        <div className="price-container">$6000</div>
+        <div className="price-container">
+          {lowPrice} - {highPrice}
+        </div>
         <div className="divider solid" />
         <div className="quantity-container">
           <QuantitySelector
@@ -57,7 +58,7 @@ export function OrderCard() {
 
 export function BrandCard({ brand }) {
   const { name, productCount, image } = brand;
-  const imageUrl = image?.url || "";
+  const imageUrl = image?.url || "data:,";
   return (
     <div className="link-no-colour">
       <div className="brand-card flex-col card-border-background card-border-radius">
@@ -100,8 +101,17 @@ export function BrandCard({ brand }) {
 }
 
 export function ProductCardVertical({ product }) {
-  let { lowPrice = "", highPrice, images, title } = product;
-  let imageUrl = images !== null && images.length > 0 ? images[0].url : "";
+  let {
+    lowPricePretty = "",
+    highPricePretty,
+    images,
+    title,
+    vipPriceFlag,
+    bulkDiscountFlag,
+    moq,
+  } = product;
+  let imageUrl =
+    images !== null && images.length > 0 ? images[0].url : "data:,";
 
   return (
     <Link href={`/products/${product.id}`}>
@@ -112,14 +122,15 @@ export function ProductCardVertical({ product }) {
           </div>
           <div className="flags-container">
             <div className="flex-col row-center row-start">
-              <VipPriceFlag isVipPrice={true} />
-              <BulkDiscountFlag isBulkDiscount={true} />
-              <MoqFlag moqNumber={20} />
+              <VipPriceFlag isVipPrice={vipPriceFlag} />
+              <BulkDiscountFlag isBulkDiscount={bulkDiscountFlag} />
+              <MoqFlag moqNumber={moq} />
             </div>
           </div>
           <div className="product-card-details">
             <div>
-              {lowPrice} to {highPrice}
+              {lowPricePretty} {highPricePretty ? " - " : ""}
+              {highPricePretty}
             </div>
             <div>{title}</div>
           </div>

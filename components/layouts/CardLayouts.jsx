@@ -1,11 +1,14 @@
 import { BrandCard, ProductCardVertical } from "../cards/SmallCards";
 
-export function BrandsCardLayout({ brands }) {
+export function BrandsCardLayout({ brands, isFeatured = false }) {
   return (
     <div className="grid-space-between brands-card-columns card-grid-gap">
-      {brands.map((brand) => (
-        <BrandCard key={brand.id} brand={brand} />
-      ))}
+      {isFeatured
+        ? brands
+            .slice(0, 6)
+            .map((brand) => <BrandCard key={brand.id} brand={brand} />)
+        : brands.map((brand) => <BrandCard key={brand.id} brand={brand} />)}
+
       <style jsx>{`
         .brands-card-columns {
           grid-template-columns: repeat(6, 193px);

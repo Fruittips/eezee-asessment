@@ -143,7 +143,16 @@ function ProductCardFullImages({ images }) {
 }
 
 function ProductCardFullDescription({ descriptionHtml }) {
-  return <>{stringToHtml(descriptionHtml)}</>;
+  return (
+    <div className="description-container">
+      {stringToHtml(descriptionHtml)}
+      <style jsx>{`
+        .description-container {
+          margin-top: 16px;
+        }
+      `}</style>
+    </div>
+  );
 }
 
 export function ProductCardFull({ product }) {

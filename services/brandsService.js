@@ -5,8 +5,8 @@ export function getAllBrands() {
 }
 
 export function sortBrandsAlphabetically(brands) {
-  return brandsJson.sort((prev, next) => {
-    prev.name.localeCompare(next.name);
+  return brands.sort((prev, next) => {
+    return prev.name.localeCompare(next.name);
   });
 }
 
@@ -25,8 +25,8 @@ export function categoriseBrandsAlphabetically(brands) {
 
   return groupedBrands;
 }
-
-/* {
+/* categoriseBrandsAlphabetically(brands) returns this: 
+{
 A : { alphabet: 'A',
       brands: [obj, obj] },
 B : { alphabet: 'B',
