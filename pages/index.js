@@ -8,11 +8,12 @@ import {
 } from "../components/layouts/CardLayouts";
 import { SectionHeader } from "../components/headers/Headers";
 import { SpacerRow } from "../components/spacers/Spacers";
+import { getAllProducts } from "../services/productsService";
+import { getAllBrands } from "../services/brandsService";
 
 export default function Home() {
-  //TODO: look at get server side props etc. with a valid reason
-
-  //call services to get product here
+  const products = getAllProducts("LowToHigh");
+  const brands = getAllBrands();
 
   return (
     <div>
@@ -29,14 +30,14 @@ export default function Home() {
               subtitle={"Browse the full catalog of brands today"}
               href={"/brands"}
             />
-            <BrandsCardLayout />
+            <BrandsCardLayout brands={brands} />
             <SpacerRow height={32} />
             <SectionHeader
               title={"Our Products"}
               subtitle={"Trusted by the best companies in Asia"}
               href={"/products"}
             />
-            <ProductsCardLayout columns={6} />
+            <ProductsCardLayout products={products} columns={6} />
             <SpacerRow height={16} />
           </div>
         </div>

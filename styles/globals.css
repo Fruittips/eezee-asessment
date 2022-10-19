@@ -91,3 +91,24 @@ a {
 .border-bottom {
   border-bottom: 1px solid var(--border);
 }
+
+/* used in Minus/Plus buttons */
+.blue-colour {
+  color: var(--eezee-blue);
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: var(--eezee-blue);
+  z-index: 2;
+}

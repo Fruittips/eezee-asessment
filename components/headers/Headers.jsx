@@ -44,11 +44,10 @@ export function SectionHeader({ title, subtitle, href }) {
   );
 }
 
-export function BrandHeader({ letter }) {
-  letter = "A";
+export function BrandHeader({ alphabet }) {
   return (
     <div className="brand-header brand-header-background flex-row flex-center">
-      <span>{letter}</span>
+      <span>{alphabet}</span>
       <style jsx>{`
         .brand-header {
           width: 94px;

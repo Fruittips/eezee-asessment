@@ -35,10 +35,7 @@
       "url": "https://storage.googleapis.com/eezee-brand-images/IqdieyoyGFSMMe463kqIpS.jpg"
     }
   },
-  {
-    "id": "59b24e3eb38a0b0ad30a3a0c",
-    "name": "SKK"
-  },
+  { "id": "59b24e3eb38a0b0ad30a3a0c", "name": "SKK" },
   {
     "id": "59b24e3eb38a0b0ad30a3a12",
     "name": "CHANNELLOCK",
@@ -112,10 +109,7 @@
       "url": "https://storage.googleapis.com/eezee-brand-images/NhuVm6AvU1~G0T22UpN2a9.gif"
     }
   },
-  {
-    "id": "59b24e3eb38a0b0ad30a3a0b",
-    "name": "IG LADDER"
-  },
+  { "id": "59b24e3eb38a0b0ad30a3a0b", "name": "IG LADDER" },
   {
     "id": "59b24e3eb38a0b0ad30a3a0d",
     "name": "VIRO LOCK",
@@ -125,17 +119,14 @@
       "url": "https://storage.googleapis.com/eezee-brand-images/LV83qkb99G9sFigQ4xWoVJ.jpg"
     }
   },
-  {
-    "id": "59b24e3eb38a0b0ad30a39e3",
-    "name": "BLOOM"
-  },
+  { "id": "59b24e3eb38a0b0ad30a39e3", "name": "BLOOM" },
   {
     "id": "59b24e3eb38a0b0ad30a39f7",
     "name": "LOUISVILLE LADDER",
     "productCount": 192,
     "featured": false,
     "image": {
-      "url": "https: //storage.googleapis.com/eezee-brand-images/BU7zDjjHO6WByM894uE6hc.png"
+      "url": "https://storage.googleapis.com/eezee-brand-images/BU7zDjjHO6WByM894uE6hc.png"
     }
   },
   {
@@ -177,7 +168,7 @@
     "productCount": 62,
     "featured": true,
     "image": {
-      "url": "https: //storage.googleapis.com/eezee-brand-images/MrjkmDOeq4O7IXXmBsoK~I.jpg"
+      "url": "https://storage.googleapis.com/eezee-brand-images/MrjkmDOeq4O7IXXmBsoK~I.jpg"
     }
   },
   {

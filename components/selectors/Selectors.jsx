@@ -1,19 +1,45 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { PlusButton, MinusButton } from "../buttons/Buttons";
 
-export function CategorySortingSelector({}) {
-  //button turns blue when selected
+export function CategorySortingSelector({ params }) {
+  const router = useRouter();
+
+  const pushParams = (params) => {
+    router.push({
+      pathname: "/products",
+      query: { sortBy: params },
+    });
+  };
+
+  const renderSelected = (type) => {
+    if (params === type) {
+      return "active";
+    } else if (params == null && type === "relevance") {
+      return "active";
+    }
+    return;
+  };
+
   return (
     <div className="selector-button-rows flex-row link-no-colour">
-      <Link href="/products?sortBy=relevance">
-        <span className="selector-button">Relevance</span>
-      </Link>
-      <Link href="/products?sortBy=priceHighToLow">
-        <span className="selector-button">Price: High to Low</span>
-      </Link>
-      <Link href="/products?sortBy=priceLowToHigh">
-        <span className="selector-button">Price: Low to High</span>
-      </Link>
+      <span
+        className={`selector-button ${renderSelected("relevance")}`}
+        onClick={() => pushParams("relevance")}
+      >
+        Relevance
+      </span>
+      <span
+        className={`selector-button ${renderSelected("HighToLow")}`}
+        onClick={() => pushParams("HighToLow")}
+      >
+        Price: High to Low
+      </span>
+      <span
+        className={`selector-button ${renderSelected("LowToHigh")}`}
+        onClick={() => pushParams("LowToHigh")}
+      >
+        Price: Low to High
+      </span>
       <style jsx>{`
         .selector-button-rows {
           height: 32px;
@@ -29,17 +55,26 @@ export function CategorySortingSelector({}) {
   );
 }
 
-export function QuantitySelector({ quantityNumber }) {
-  quantityNumber = 1;
+import { useState, useEffect } from "react";
+
+export function QuantitySelector({ quantity, setQuantityHandler }) {
+  const isQuantityValid = quantity > 0 ? true : false;
+
   return (
     <div className="flex-row row-middle">
       <span className="quantity-text-container">Quantity</span>
       <div className="flex-row row-middle selector-container">
-        <MinusButton />
-        <span className="text-input selector-background-border">
-          {quantityNumber}
-        </span>
-        <PlusButton />
+        <MinusButton
+          onClick={() => setQuantityHandler(quantity - 1)}
+          isValid={isQuantityValid}
+        />
+        <input
+          className="text-input selector-background-border"
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantityHandler(parseInt(e.target.value))}
+        />
+        <PlusButton onClick={() => setQuantityHandler(quantity + 1)} />
       </div>
       <style jsx>{`
         .quantity-text-container {
@@ -51,8 +86,7 @@ export function QuantitySelector({ quantityNumber }) {
         }
 
         .text-input {
-          padding: 4px;
-          height: 100%;
+          height: 32px;
           width: 56px;
           margin: -1px;
           text-align: center;

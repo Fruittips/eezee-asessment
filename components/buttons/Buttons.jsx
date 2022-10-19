@@ -1,26 +1,19 @@
-/*
-add-to-cart button
-add-to-favourite button (static)
-
-icon-only-button
-
-cart-button includes number icon
-
-*/
 import Image from "next/image";
-
 import {
   PlusOutlined,
   MinusOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { useCartQuantityContext } from "../../context/cartContext";
 
 export function CartIconButton() {
+  const [cartQuantity, setCartQuantity] = useCartQuantityContext();
+
   return (
     <div className="flex-col col-center icon-colour">
       <div className="icon-size">
         <div className="quantity-indicator quantity-indicator-bg-colour flex-col col-center">
-          1
+          {cartQuantity}
         </div>
         <Image
           src={"https://storage.googleapis.com/imgez/icons/cart-icon.svg"}
@@ -53,7 +46,10 @@ export function CartIconButton() {
 
 export function AddCartButton({ onClick }) {
   return (
-    <button className="add-cart-button" onClick={onClick}>
+    <button
+      className="add-cart-button link-no-colour"
+      onClick={() => onClick()}
+    >
       Add to Cart
       <style jsx>{`
         .add-cart-button {
@@ -64,9 +60,9 @@ export function AddCartButton({ onClick }) {
   );
 }
 
-export function AddFavouriteButton({ onClick }) {
+export function AddFavouriteButton() {
   return (
-    <button className="favourite-button full-width" onClick={onClick}>
+    <button className="favourite-button full-width">
       Add to Favourites
       <style jsx>{``}</style>
     </button>
@@ -76,7 +72,7 @@ export function AddFavouriteButton({ onClick }) {
 export function PlusButton({ onClick }) {
   return (
     <button
-      className="plus-button selector-background-border flex-col flex-center"
+      className="plus-button selector-background-border flex-col flex-center blue-colour"
       onClick={onClick}
     >
       <PlusOutlined />
@@ -91,10 +87,12 @@ export function PlusButton({ onClick }) {
   );
 }
 
-export function MinusButton({ onClick }) {
+export function MinusButton({ onClick, isValid }) {
   return (
     <button
-      className="minus-button selector-background-border flex-col flex-center"
+      className={`minus-button selector-background-border flex-col flex-center ${
+        isValid ? "blue-colour" : "disabled"
+      }`}
       onClick={onClick}
     >
       <MinusOutlined />

@@ -1,3 +1,5 @@
+/* TODO: refactor this css into the different categories  */
+
 .brand-header-background {
   background: var(--divider);
 }
@@ -38,6 +40,12 @@
   color: var(--white);
   background: var(--eezee-blue);
   border: 1px solid var(--eezee-blue);
+}
+
+.disabled {
+  color: var(--gray-primary);
+  background: var(--background);
+  pointer-events: none;
 }
 
 .active {

@@ -1,29 +1,40 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { AddCartButton, AddFavouriteButton } from "../buttons/Buttons";
 import { QuantitySelector } from "../selectors/Selectors";
 import { VipPriceFlag, BulkDiscountFlag, MoqFlag } from "../flags/Flags";
+import { useCartQuantityContext } from "../../context/cartContext";
 
 export function OrderCard() {
+  const [quantity, setQuantity] = useState(1);
+  const [isQuantityValid, setIsQuantityValid] = useState(true);
+  const [cartQuantityContext, setCartQuantityContext] =
+    useCartQuantityContext();
+
   return (
     <div className="order-card flex-col card-border-radius card-border-background">
       <div className="flex-col">
         <div className="price-container">$6000</div>
         <div className="divider solid" />
         <div className="quantity-container">
-          <QuantitySelector />
+          <QuantitySelector
+            quantity={quantity}
+            setQuantityHandler={setQuantity}
+          />
         </div>
         <div className="buttons-container flex-col">
-          <AddCartButton onClick={() => console.log("add to cart")} />
-          <AddFavouriteButton
-            onClick={() => console.log("add to favourites")}
+          <AddCartButton
+            onClick={() =>
+              setCartQuantityContext(cartQuantityContext + quantity)
+            }
           />
+          <AddFavouriteButton />
         </div>
       </div>
       <style jsx>{`
         .order-card {
           padding: 16px;
-          border: 1px solid blue;
         }
 
         .price-container {
@@ -45,77 +56,72 @@ export function OrderCard() {
 }
 
 export function BrandCard({ brand }) {
+  const { name, productCount, image } = brand;
+  const imageUrl = image?.url || "";
   return (
-    <Link href="/brands">
-      <div className="link-no-colour">
-        <div className="brand-card flex-col card-border-background card-border-radius">
-          <div className=" brand-card-img ">
-            <div className="flex-col flex-center">
-              <Image
-                src=""
-                alt="Brand Logo"
-                width="135px"
-                height="60px"
-                layout="intrinsic"
-              />
-            </div>
-          </div>
-          <div className="brand-card-details flex-col col-center">
-            <span>brand title</span>
-            <span>brand details</span>
+    <div className="link-no-colour">
+      <div className="brand-card flex-col card-border-background card-border-radius">
+        <div className=" brand-card-img ">
+          <div className="flex-col flex-center">
+            <Image
+              src={imageUrl}
+              alt="Brand Logo"
+              width="135px"
+              height="60px"
+              layout="intrinsic"
+            />
           </div>
         </div>
-        <style jsx>
-          {`
-            .brand-card {
-              width: 193px;
-              height: 157px;
-              padding: 8px;
-            }
-
-            .brand-card-img {
-              height: 101px;
-              padding: 14px;
-            }
-
-            .brand-card-details {
-              height: 54px;
-            }
-          `}
-        </style>
+        <div className="brand-card-details flex-col col-center">
+          <span>{name}</span>
+          <span>{productCount} Products</span>
+        </div>
       </div>
-    </Link>
+      <style jsx>
+        {`
+          .brand-card {
+            width: 193px;
+            height: 157px;
+            padding: 8px;
+          }
+
+          .brand-card-img {
+            height: 101px;
+            padding: 14px;
+          }
+
+          .brand-card-details {
+            height: 54px;
+          }
+        `}
+      </style>
+    </div>
   );
 }
 
 export function ProductCardVertical({ product }) {
-  //to render flags for the product
-  //return the components /div for the flag
-  const renderFlags = () => {
-    return (
-      <div className="flex-col row-center row-start">
-        <VipPriceFlag isVipPrice={true} />
-        <BulkDiscountFlag isBulkDiscount={true} />
-        <MoqFlag moqNumber={20} />
-      </div>
-    );
-  };
+  let { lowPrice = "", highPrice, images, title } = product;
+  let imageUrl = images !== null && images.length > 0 ? images[0].url : "";
 
   return (
-    <Link href="/products">
+    <Link href={`/products/${product.id}`}>
       <div className="link-no-colour">
         <div className="product-card card-border-background card-border-radius flex-col row-start">
           <div className="product-card-img">
-            <Image
-              src="https://storage.googleapis.com/eezee-product-images/meiji-plain-cracker-26g-x-32-pieces-pack-iu0h_600.jpg"
-              alt="Product Image"
-              layout="fill"
-            />
+            <Image src={imageUrl} alt="Product Image" layout="fill" />
           </div>
-          <div className="flags-container">{renderFlags()}</div>
+          <div className="flags-container">
+            <div className="flex-col row-center row-start">
+              <VipPriceFlag isVipPrice={true} />
+              <BulkDiscountFlag isBulkDiscount={true} />
+              <MoqFlag moqNumber={20} />
+            </div>
+          </div>
           <div className="product-card-details">
-            <div>low price to high price</div>
-            <div>long description</div>
+            <div>
+              {lowPrice} to {highPrice}
+            </div>
+            <div>{title}</div>
           </div>
         </div>
         <style jsx>
@@ -134,7 +140,6 @@ export function ProductCardVertical({ product }) {
               max-width: 100%;
               max-height: 100%;
               vertical-align: middle;
-              border: 1px solid red;
             }
 
             .product-card-details {

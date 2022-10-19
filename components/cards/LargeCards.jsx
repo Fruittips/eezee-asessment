@@ -1,26 +1,42 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { stringToHtml } from "../../utils/convertHtml";
 
 /* ProductCardFull split into 3 different parts: 
 1. ProductCardFullTitleBrand - for the top portion
 2. ProductCardFullImages - for the middle portion
 3. ProductCardFullDescription - for the bottom portion */
 
-function ProductCardFullTitleBrand({}) {
+function ProductCardFullTitleBrand({ product }) {
+  const { title } = product;
+  const { brand, model } = product.metadata;
+  const brandImageUrl =
+    product.metadata !== null && product.metadata.brandImage !== null
+      ? product.metadata.brandImage
+      : "";
   return (
     <div className="product-title-model">
-      <div className="product-title">product title</div>
+      <div className="product-title">{title}</div>
       <div className="product-model flex-row">
-        <span className="logo">logo</span>
+        <span className="logo">
+          <Image
+            src={brandImageUrl}
+            alt="Logo"
+            width="100px"
+            height="48px"
+            layout="intrinsic"
+          />
+        </span>
         <div className="flex-col">
           <span>Model:</span>
           <span>Brand:</span>
         </div>
         <div className="flex-col flex-wrap-none-overflow-ellipsis">
           <a href="">
-            <span className="link">link title blue link</span>
+            <span className="link">{model}</span>
           </a>
           <a href="">
-            <span className="link">Really long brand name</span>
+            <span className="link">{brand}</span>
           </a>
         </div>
       </div>
@@ -46,6 +62,7 @@ function ProductCardFullTitleBrand({}) {
 
           .logo {
             width: 100px;
+            margin-right: 16px;
           }
         `}
       </style>
@@ -54,11 +71,21 @@ function ProductCardFullTitleBrand({}) {
 }
 
 function ProductCardFullImages({ images }) {
+  const [centerImage, setCenterImage] = useState("");
+
+  const isNotEmpty = images && images.length > 0;
+
+  useEffect(() => {
+    if (isNotEmpty) {
+      setCenterImage(images[0].url);
+    }
+  }, []);
+
   return (
     <div className="product-image">
       <div className="image-centerstage flex-row flex-center ">
         <Image
-          src="https://storage.googleapis.com/eezee-product-images/oliver-safety-shoe-34-632p-0er3_600.jpg"
+          src={centerImage}
           alt="Brand Logo"
           width="700px"
           height="358px"
@@ -67,27 +94,29 @@ function ProductCardFullImages({ images }) {
         />
       </div>
       <div className="image-carousel flex-row flex-center">
-        <div className="flex-row flex-center image-box active">
-          <Image
-            src="https://storage.googleapis.com/eezee-product-images/oliver-safety-shoe-34-632p-0er3_600.jpg"
-            alt="Carousel Image"
-            width="50px"
-            height="50px"
-            laout="intrinsic"
-          />
-        </div>
-        <div className="flex-row flex-center image-box card-border-background">
-          <Image
-            src="https://storage.googleapis.com/eezee-product-images/oliver-safety-shoe-34-632p-0er3_600.jpg"
-            alt="Carousel Image"
-            width="50px"
-            height="50px"
-            laout="intrinsic"
-          />
-        </div>
-        <div className="flex-row flex-center image-box card-border-background">
-          image
-        </div>
+        {isNotEmpty ? (
+          images.map((image) => (
+            <div
+              key={image.url}
+              className={`flex-row flex-centers image-box ${
+                image.url === centerImage ? "active" : ""
+              }`}
+              onClick={() => {
+                setCenterImage(image.url);
+              }}
+            >
+              <Image
+                src={image.url}
+                alt="Carousel Image"
+                width="50px"
+                height="50px"
+                laout="intrinsic"
+              />
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
       </div>
       <style jsx>{`
         .product-image {
@@ -113,37 +142,22 @@ function ProductCardFullImages({ images }) {
   );
 }
 
-function ProductCardFullDescription() {
-  return (
-    <div className="product-description flex-col">
-      <div>Product Description</div>
-      <div>Specification</div>
-      <div className="detailed-description">
-        <div>product name</div>
-        <div>more details below</div>
-        <div>longlonglong details</div>
-      </div>
-      <style jsx>{`
-        .product-description {
-          margin-top: 16px;
-          gap: 16px;
-        }
-        .detailed-description {
-        }
-      `}</style>
-    </div>
-  );
+function ProductCardFullDescription({ descriptionHtml }) {
+  return <>{stringToHtml(descriptionHtml)}</>;
 }
 
-export function ProductCardFull() {
+export function ProductCardFull({ product }) {
+  if (!product) {
+    return <></>;
+  }
   return (
     <div className="product-card-full card-border-radius card-border-background card-padding">
       <div className="flex-col">
-        <ProductCardFullTitleBrand />
+        <ProductCardFullTitleBrand product={product} />
         <span className="divider" />
-        <ProductCardFullImages />
+        <ProductCardFullImages images={product.images} />
         <span className="divider" />
-        <ProductCardFullDescription />
+        <ProductCardFullDescription descriptionHtml={product.descriptionHtml} />
       </div>
       <style jsx>{`
         .card-padding {

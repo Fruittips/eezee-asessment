@@ -6,15 +6,19 @@ import AppBar from "../components/appbar/AppBar";
 import { CategorySortingSelector } from "../components/selectors/Selectors";
 import { ProductsCardLayout } from "../components/layouts/CardLayouts";
 import { PageLabel } from "../components/labels/Labels";
+import { getAllProducts } from "../services/productsService";
 
 export default function Products() {
   //TODO: do shallow routing (handle multiple urls without running data fetching methods again)
   //TODO: get query params and then set state on button based on it
+  const [products, setProducts] = useState([]);
   const router = useRouter();
+  const { sortBy } = router.query; //TODO: why must it be placed inside here again
 
   useEffect(() => {
-    const { sortBy } = router.query;
-  }, [router.query]);
+    const sortedProducts = getAllProducts(sortBy);
+    setProducts([...sortedProducts]);
+  }, [sortBy]);
 
   return (
     <div>
@@ -25,15 +29,15 @@ export default function Products() {
           <SpacerRow height={24} />
           <div className="body-container grid-default">
             <div className="product-filter-column flex-col">
-              <div>title</div>
-              <div>subtitle</div>
+              <div>Products</div>
+              <div>{products.length} results</div>
             </div>
-            <div className="product-list-column flex-col  ">
-              <PageLabel />
+            <div className="product-list-column flex-col">
+              <PageLabel results={products.length} />
               <SpacerRow height={8} />
-              <CategorySortingSelector />
+              <CategorySortingSelector params={sortBy} />
               <SpacerRow height={16} />
-              <ProductsCardLayout columns={5} />
+              <ProductsCardLayout columns={5} products={products} />
             </div>
           </div>
         </div>

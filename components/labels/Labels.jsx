@@ -8,6 +8,6 @@ price-range-big
 
 */
 
-export function PageLabel({ pageNumber }) {
-  return <div>page 1 of ...</div>;
+export function PageLabel({ results }) {
+  return <div>Page 1 of about {results} results</div>;
 }
